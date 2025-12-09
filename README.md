@@ -2,7 +2,7 @@
 
 **Ducky-Time** es un temporizador estilo Pomodoro con notificaciones nativas del sistema operativo, diseñado con una estética pixel art.
 
-![Ducky-Time Screenshot](assets/img/ducky-preview.png)
+![Ducky-Time Screenshot](assets/img/ducky-time-preview.png)
 
 ---
 
@@ -132,5 +132,3 @@ Al abrir la aplicación por primera vez, aparecerá un modal solicitando permiso
 Se eligió BEM porque es una metodología que permite una mejor organización del código y una mejor legibilidad, ya que, al usar bloque__elemento--modificador, se puede identificar claramente la jerarquía y la relación entre los elementos.
 
 Por otro lado, se eligió SASS como preprocesador porque es un preprocesador que permite una mejor organización a la hora de buscar partes individuales del código, muy útil en caso de que se quiera reutilizar en otro proyecto, aunque se demora en establecer el orden vale la pena a largo plazo.
-
----
