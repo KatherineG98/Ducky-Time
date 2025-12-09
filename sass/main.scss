@@ -1,0 +1,39 @@
+/* 1. Abstracts */
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+/* 2. Vendors */
+@import '../../node_modules/@hackernoon/pixel-icon-library/fonts/iconfont.css';
+
+/* Override font-path for SASS compilation (browsers can't see node_modules fonts) */
+@font-face {
+    font-family: "iconfont";
+    src: url("../assets/icons/pixel-icons/iconfont.eot?0ff28214377bfc74e5cf29455991154b?#iefix") format("embedded-opentype"),
+        url("../assets/icons/pixel-icons/iconfont.woff2?0ff28214377bfc74e5cf29455991154b") format("woff2"),
+        url("../assets/icons/pixel-icons/iconfont.woff?0ff28214377bfc74e5cf29455991154b") format("woff"),
+        url("../assets/icons/pixel-icons/iconfont.ttf?0ff28214377bfc74e5cf29455991154b") format("truetype");
+}
+
+/* 3. Base */
+@import 'base/root';
+@import 'base/base';
+/* Typography included in variables/base or separate if needed. Using vars in base. */
+
+/* 4. Layout */
+@import 'layout/layout';
+@import 'layout/header';
+@import 'layout/panels';
+
+/* 5. Components */
+@import 'components/buttons';
+@import 'components/inputs';
+@import 'components/water';
+@import 'components/timer';
+@import 'components/modal';
+
+
+/* 6. Pages */
+/* (Single page app, styles in layout/components) */
+
+/* 7. Themes */
+/* (Default is Neon Night, included in variables) */

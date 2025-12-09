@@ -1,0 +1,11 @@
+/* usage: @import "layout/header"; */
+
+.app-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__logo {
+        height: 5rem;
+    }
+}

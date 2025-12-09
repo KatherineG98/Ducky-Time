@@ -1,0 +1,79 @@
+/* usage: @import "components/buttons"; */
+
+.btn {
+    font-family: $font-header;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+    border: 4px solid var(--border-color);
+    background: var(--color-panel-bg);
+    color: var(--text-dark);
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px var(--border-color);
+    transition: transform 0.1s, box-shadow 0.1s;
+
+    &:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px var(--border-color);
+        background: var(--color-bg-hover);
+    }
+
+
+    &:active {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+    }
+
+    &--primary {
+        background: var(--color-primary);
+        color: var(--text-dark);
+
+        &:hover {
+            background: var(--color-primary-hover);
+        }
+    }
+
+    &--secondary {
+        background: var(--color-panel-bg);
+        color: var(--text-dark);
+    }
+
+    &--running {
+        background: var(--color-primary-hover);
+        color: var(--text-dark);
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px var(--border-color);
+        cursor: not-allowed;
+    }
+
+    &--small {
+        font-size: 0.6rem;
+        padding: 5px 10px;
+        border-width: 2px;
+        box-shadow: 2px 2px 0px var(--border-color);
+
+        &:hover {
+            box-shadow: 1px 1px 0px var(--border-color);
+        }
+    }
+
+    &--running:hover {
+        background: var(--color-primary-hover) !important;
+    }
+
+    i,
+    .hn {
+        color: inherit;
+        text-shadow: none;
+        /* Prevent double shadow if any */
+    }
+}
+
+.action-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 4px solid var(--border-color);
+    padding-bottom: 30px;
+}

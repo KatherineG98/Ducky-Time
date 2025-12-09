@@ -1,0 +1,7 @@
+{
+  "name": "ducky-time",
+  "dependencies": {
+    "@hackernoon/pixel-icon-library": "^1.0.6",
+    "sass": "^1.94.2"
+  }
+}

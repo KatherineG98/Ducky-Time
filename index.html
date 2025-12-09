@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducky-Time | Temporizador</title>
+    <meta name="description"
+        content="Temporizador con notificaciones nativas de sistema para ayudarte a ser más productivo.">
+    <meta name="keywords" content="temporizador, productividad, notificaciones, sistema">
+    <meta name="author" content="Katherine González">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="assets/img/ducky-favicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+    <!-- Modal de permiso -->
+    <div id="permission-modal" class="permission-modal">
+        <div class="permission-box">
+            <h2><i class="hn hn-bell-solid"></i> Activar Notificaciones</h2>
+            <p>Ducky-Time necesita tu permiso para avisarte cuando termine el temporizador.</p>
+            <button id="btn-enable-notifications" class="btn btn--primary">ACTIVAR NOTIFICACIONES</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Fondo -->
+        <div class="pixel-water">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <main class="main-content">
+            <header class="app-header">
+                <img class="app-header__logo" src="assets/svg/ducky-time-logo.svg" alt="Ducky-Time Logo">
+                <h1 class="hidden">Ducky-Time</h1>
+            </header>
+
+            <div class="panels">
+                <!-- Panel Temporizador -->
+                <section class="panel panel--timer" id="timer-panel">
+                    <div class="timer-display">
+                        <input type="text" id="timer-input" class="timer-display__digits" value="25:00"
+                            placeholder="MM:SS">
+                        <div class="timer-display__controls">
+                            <button class="timer-display__btn btn btn--secondary" id="btn-plus-15">+15m</button>
+                            <button class="timer-display__btn btn btn--secondary" id="btn-minus-15">-15m</button>
+                        </div>
+                    </div>
+
+                    <div class="session-info">
+                        <label class="pixel-label">Título</label>
+                        <input type="text" id="session-title" class="pixel-input" placeholder="Ej. Estudiar">
+
+                        <label class="pixel-label">Descripción</label>
+                        <input type="text" id="session-desc" class="pixel-input"
+                            placeholder="Ej. Resolver ejercicios 1-10">
+                    </div>
+
+                    <div class="action-controls">
+                        <button class="btn btn--primary" id="btn-start"><i class="hn hn-play-solid"></i>
+                            INICIAR</button>
+                        <button class="btn btn--secondary" id="btn-pause" disabled><i
+                                class="hn hn-pause-solid"></i></button>
+                        <button class="btn btn--secondary" id="btn-reset"><i class="hn hn-refresh-solid"></i>
+                            REINICIAR</button>
+                    </div>
+
+                    <div class="control-footer repeat-controls">
+                        <label class="pixel-checkbox">
+                            <input type="checkbox" id="check-loop-notify">
+                            <span>Repetir Ciclo</span>
+                        </label>
+                        <button class="btn btn--small" id="btn-test-notify"><i class="hn hn-bell-solid"></i>
+                            Probar</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/canvas.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

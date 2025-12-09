@@ -1,0 +1,14 @@
+/* usage: @import "components/water"; */
+
+.pixel-water {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-image: url(../../assets/img/background-water.png);
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+}

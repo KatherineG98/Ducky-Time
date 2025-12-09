@@ -1,0 +1,426 @@
+/* 1. Abstracts */
+/* Font Families */
+/* Monochrome Palette - Mapped to CSS Variables */
+/* Semantic Colors (High Contrast) */
+/* Spacing */
+/* Borders */
+/* usage: @import "abstracts/mixins"; */
+/* 2. Vendors */
+@import '../../node_modules/@hackernoon/pixel-icon-library/fonts/iconfont.css';
+
+/* Override font-path for SASS compilation (browsers can't see node_modules fonts) */
+@font-face {
+  font-family: "iconfont";
+  src: url("../assets/icons/pixel-icons/iconfont.eot?0ff28214377bfc74e5cf29455991154b?#iefix") format("embedded-opentype"), url("../assets/icons/pixel-icons/iconfont.woff2?0ff28214377bfc74e5cf29455991154b") format("woff2"), url("../assets/icons/pixel-icons/iconfont.woff?0ff28214377bfc74e5cf29455991154b") format("woff"), url("../assets/icons/pixel-icons/iconfont.ttf?0ff28214377bfc74e5cf29455991154b") format("truetype");
+}
+
+/* 3. Base */
+/* usage: @import "base/root"; */
+:root {
+  --color-panel-bg: #ffffff;
+  --color-primary: #FBD11A;
+  /* Semantic Colors */
+  --color-success: #16ce1f;
+  --color-warning: #edb90c;
+  --color-danger: #cc1010;
+  /* Borders */
+  --border-color: #3C293B;
+  /* Base Colors */
+  --text-white: #ffffff;
+  --text-dark: #3C293B;
+  /* Interaction Colors */
+  --color-bg-hover: #fff1b4;
+  --color-primary-hover: #FF7E00;
+  --color-text-focus: #4f4545;
+  /* Input Colors */
+  --color-input-shadow: #e3d8d8;
+  --color-input-placeholder: #888888;
+  --color-input-inner-shadow: #e3d8d8;
+  /* Modal Colors */
+  --color-modal-bg: #ffffff;
+  --color-modal-accent: #e97500;
+  --color-modal-overlay: rgba(0, 0, 0, 0.9);
+  /* Transparent / Shadow Colors */
+  --shadow-main: rgba(52, 50, 50, 0.2);
+}
+
+/* usage: @import "base/base"; */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "VT323", monospace;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  /* Mobile-first column */
+  height: 90vh;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hidden utilities */
+.hidden {
+  display: none !important;
+}
+
+/* Typography included in variables/base or separate if needed. Using vars in base. */
+/* 4. Layout */
+/* usage: @import "layout/layout"; */
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.main-content {
+  width: 90%;
+  max-width: 600px;
+  margin-top: 20px;
+  background: var(--bg-main-content);
+  border: 4px solid var(--border-color);
+  box-shadow: 6px 6px 0 var(--shadow-main);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 94vh;
+  backdrop-filter: blur(5px);
+  /* Ensure it floats above the water/canvas */
+  position: relative;
+  z-index: 100;
+}
+
+/* usage: @import "layout/header"; */
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-header__logo {
+  height: 5rem;
+}
+
+/* usage: @import "layout/panels"; */
+.panels {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  overflow-y: auto;
+  /* Allow vertical scroll only if needed */
+  overflow-x: hidden;
+  padding: 10px;
+  width: 100%;
+  /* Clean scrollbar */
+}
+
+.panels::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.panel {
+  border: 4px solid var(--border-color);
+  /* Thick black border */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-panel-bg);
+  /* White background */
+  box-shadow: 6px 6px 0px var(--shadow-main);
+  /* Solid shadow */
+}
+
+/* 5. Components */
+/* usage: @import "components/buttons"; */
+.btn {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.8rem;
+  padding: 10px 15px;
+  border: 4px solid var(--border-color);
+  background: var(--color-panel-bg);
+  color: var(--text-dark);
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0px var(--border-color);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--border-color);
+  background: var(--color-bg-hover);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--text-dark);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--secondary {
+  background: var(--color-panel-bg);
+  color: var(--text-dark);
+}
+
+.btn--running {
+  background: var(--color-primary-hover);
+  color: var(--text-dark);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--border-color);
+  cursor: not-allowed;
+}
+
+.btn--running:hover {
+  background: var(--color-primary-hover) !important;
+}
+
+.btn--small {
+  font-size: 0.6rem;
+  padding: 5px 10px;
+  border-width: 2px;
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.btn--small:hover {
+  box-shadow: 1px 1px 0px var(--border-color);
+}
+
+.btn i,
+.btn .hn {
+  color: inherit;
+  text-shadow: none;
+  /* Prevent double shadow if any */
+}
+
+.action-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-bottom: 4px solid var(--border-color);
+  padding-bottom: 30px;
+}
+
+/* usage: @import "components/inputs"; */
+.pixel-label {
+  display: block;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  margin-top: 10px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pixel-input {
+  width: 100%;
+  padding: 14px;
+  font-family: "VT323", monospace;
+  font-size: 1.2rem;
+  background: var(--color-panel-bg);
+  border: 4px solid var(--border-color);
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  outline: none;
+  box-shadow: 4px 4px 0px var(--color-input-shadow);
+}
+
+.pixel-input::placeholder {
+  color: var(--color-input-placeholder);
+}
+
+.pixel-input:focus {
+  box-shadow: 4px 4px 0px var(--color-primary);
+  transform: translate(-1px, -1px);
+}
+
+.pixel-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+}
+
+.pixel-checkbox input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--border-color);
+  background: var(--color-panel-bg);
+  position: relative;
+  cursor: pointer;
+}
+
+.pixel-checkbox input:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary-hover);
+}
+
+/* usage: @import "components/water"; */
+.pixel-water {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-image: url(../../assets/img/background-water.png);
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+}
+
+/* usage: @import "components/timer"; */
+.timer-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-panel-bg);
+  padding: 24px;
+  border: 4px solid var(--border-color);
+  margin-bottom: 14px;
+  box-shadow: inset 4px 4px 0px var(--color-input-inner-shadow);
+}
+
+.timer-display__digits {
+  font-family: "Press Start 2P", monospace;
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  background: transparent;
+  border: none;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  outline: none;
+}
+
+.timer-display__digits:focus {
+  color: var(--color-text-focus);
+}
+
+.timer-display__controls {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.timer-display__btn {
+  width: 80px;
+  font-size: 0.7rem;
+  padding: 8px;
+  border-width: 3px;
+  box-shadow: 3px 3px 0px var(--border-color);
+}
+
+.timer-display__btn:hover {
+  box-shadow: 1px 1px 0px var(--border-color);
+  transform: translate(2px, 2px);
+}
+
+.timer-display__btn:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+.session-info {
+  margin-bottom: 20px;
+}
+
+.control-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* usage: @import "components/modal"; */
+.permission-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-modal-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.permission-modal.hidden {
+  display: none;
+}
+
+.permission-box {
+  background: var(--color-modal-bg);
+  border: 4px solid var(--border-color);
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 6px 6px 0px var(--shadow-main);
+}
+
+.permission-box h2 {
+  font-family: "Press Start 2P", cursive;
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.permission-box p {
+  font-family: "VT323", monospace;
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+/* 6. Pages */
+/* (Single page app, styles in layout/components) */
+/* 7. Themes */
+/* (Default is Neon Night, included in variables) */
+
+/*# sourceMappingURL=main.css.map */

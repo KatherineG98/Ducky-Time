@@ -1,0 +1,36 @@
+/* usage: @import "base/root"; */
+
+:root {
+    --color-panel-bg: #ffffff;
+    --color-primary: #FBD11A;
+
+    /* Semantic Colors */
+    --color-success: #16ce1f;
+    --color-warning: #edb90c;
+    --color-danger: #cc1010;
+
+    /* Borders */
+    --border-color: #3C293B;
+
+    /* Base Colors */
+    --text-white: #ffffff;
+    --text-dark: #3C293B;
+
+    /* Interaction Colors */
+    --color-bg-hover: #fff1b4;
+    --color-primary-hover: #FF7E00;
+    --color-text-focus: #4f4545;
+
+    /* Input Colors */
+    --color-input-shadow: #e3d8d8;
+    --color-input-placeholder: #888888;
+    --color-input-inner-shadow: #e3d8d8;
+
+    /* Modal Colors */
+    --color-modal-bg: #ffffff;
+    --color-modal-accent: #e97500;
+    --color-modal-overlay: rgba(0, 0, 0, 0.9);
+
+    /* Transparent / Shadow Colors */
+    --shadow-main: rgba(52, 50, 50, 0.2);
+}

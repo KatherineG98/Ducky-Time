@@ -1,0 +1,63 @@
+/* usage: @import "components/inputs"; */
+
+.pixel-label {
+    display: block;
+    font-family: $font-header;
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    margin-top: 10px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pixel-input {
+    width: 100%;
+    padding: 14px;
+    font-family: $font-primary;
+    font-size: 1.2rem;
+    background: var(--color-panel-bg);
+    border: 4px solid var(--border-color);
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    outline: none;
+    box-shadow: 4px 4px 0px var(--color-input-shadow);
+
+    &::placeholder {
+        color: var(--color-input-placeholder);
+    }
+
+    &:focus {
+        box-shadow: 4px 4px 0px var(--color-primary);
+        transform: translate(-1px, -1px);
+    }
+}
+
+.pixel-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: $font-primary;
+    font-size: 1.1rem;
+
+    input {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 3px solid var(--border-color);
+        background: var(--color-panel-bg);
+        position: relative;
+        cursor: pointer;
+
+        &:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 10px;
+            height: 10px;
+            background: var(--color-primary-hover);
+        }
+    }
+}
