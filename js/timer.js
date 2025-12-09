@@ -7,6 +7,9 @@ class StudyTimer {
         this.isRunning = false;
         this.isFinished = false;
 
+        // Real-time tracking (fixes background tab throttling)
+        this.endTime = null; // Timestamp when timer should end
+
         // Visual Elements
         this.elDisplay = document.getElementById('timer-input');
         this.elTitle = document.getElementById('session-title');
@@ -89,14 +92,20 @@ class StudyTimer {
         this.stopNotificationLoop();
         this.updateButtons();
 
+        // Set the absolute end time based on real clock
+        this.endTime = Date.now() + (this.remaining * 1000);
+
         this.interval = setInterval(() => {
+            // Calculate remaining time from real clock (fixes background throttling)
+            const now = Date.now();
+            this.remaining = Math.max(0, Math.ceil((this.endTime - now) / 1000));
+
             if (this.remaining > 0) {
-                this.remaining--;
                 this.render();
             } else {
                 this.complete();
             }
-        }, 1000);
+        }, 250); // Check more frequently for responsiveness
     }
 
     pause() {
@@ -109,6 +118,7 @@ class StudyTimer {
     reset() {
         this.pause();
         this.remaining = this.duration;
+        this.endTime = null;
         this.isFinished = false;
         this.stopNotificationLoop();
         this.render();
